@@ -7,18 +7,19 @@ const pokemonPlace = document.querySelector('.pokemon')
 
 
 const renderPokemon = poke =>{
-        let pokemonH = document.createElement('h3')
-        pokemonH.innerHTML = `${poke.name} #${poke.id}`
-        pokemonH.classList.add ('pokeName')
-        pokemonPlace.appendChild(pokemonH)
-
-        let pokemonType = document.createElement('h4')
-        pokemonType.innerHTML = `${poke.types[0].type.name} ${poke.types[1].type.name}`
-        pokemonPlace.appendChild(pokemonType)
-
         let pokeDiv = document.createElement('div')
         pokeDiv.classList.add ('pokeInfo')
         pokemonPlace.append(pokeDiv)
+        
+        let pokemonH = document.createElement('h3')
+        pokemonH.innerHTML = `${poke.name} #${poke.id}`
+        pokemonH.classList.add ('pokeName')
+        pokeDiv.appendChild(pokemonH)
+
+        let pokemonType = document.createElement('h4')
+        pokemonType.innerHTML = `${poke.types[0].type.name} ${poke.types[1].type.name}`
+        pokeDiv.appendChild(pokemonType)
+
 
         let pokeImg = document.createElement('img')
         pokeImg.src = poke.sprites.front_default
@@ -74,7 +75,8 @@ const getPokemon = async () => {
 
 const rmPoke = () => {
 
- pokemonPlace.removeChild(pokeDiv)
+ pokemonPlace.removeChild(pokemonPlace.lastChild)
+//  pokemonPlace.removeChild(pokemonPlace.lastChild)
 
 }
 
@@ -83,6 +85,6 @@ button.addEventListener('click', () =>{
     if(input.value === ''){
         alert('no pokemon name is entered')
     }
-    
+    rmPoke()
     getPokemon()
 })
