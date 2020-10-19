@@ -1,18 +1,23 @@
 // console.log('hello') trying out if was linked correctly
-
+//ask for help regarding displaying more tha 1 type and removew the last pokemon searched
 const input = document.querySelector('#input')
 const button = document.querySelector('#button')
 const domain = 'https://pokeapi.co/api/v2/pokemon'
 const pokemonPlace = document.querySelector('.pokemon') 
 
 
-const rederPokemon = poke =>{
+const renderPokemon = poke =>{
         let pokemonH = document.createElement('h3')
         pokemonH.innerHTML = `${poke.name} #${poke.id}`
         pokemonH.classList.add ('pokeName')
-        pokemonPlace.append(pokemonH)
+        pokemonPlace.appendChild(pokemonH)
+
+        let pokemonType = document.createElement('h4')
+        pokemonType.innerHTML = `${poke.types[0].type.name} ${poke.types[1].type.name}`
+        pokemonPlace.appendChild(pokemonType)
 
         let pokeDiv = document.createElement('div')
+        pokeDiv.classList.add ('pokeInfo')
         pokemonPlace.append(pokeDiv)
 
         let pokeImg = document.createElement('img')
@@ -61,10 +66,16 @@ const getPokemon = async () => {
     const response = await axios.get(search)
     
         console.log(response.data)
-        rederPokemon(response.data)
+        renderPokemon(response.data)
     }catch(error){
         console.log(error)
     }
+}
+
+const rmPoke = () => {
+
+ pokemonPlace.removeChild(pokeDiv)
+
 }
 
 button.addEventListener('click', () =>{
@@ -72,5 +83,6 @@ button.addEventListener('click', () =>{
     if(input.value === ''){
         alert('no pokemon name is entered')
     }
+    
     getPokemon()
 })
