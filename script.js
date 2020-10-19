@@ -4,21 +4,24 @@ const input = document.querySelector('#input')
 const button = document.querySelector('#button')
 const domain = 'https://pokeapi.co/api/v2/pokemon'
 const pokemonPlace = document.querySelector('.pokemon') 
+const characteristics = 'https://pokeapi.co/api/v2/characteristic/'
 
 
 const renderPokemon = poke =>{
         let pokeDiv = document.createElement('div')
         pokeDiv.classList.add ('pokeInfo')
         pokemonPlace.append(pokeDiv)
-        
+
         let pokemonH = document.createElement('h3')
         pokemonH.innerHTML = `${poke.name} #${poke.id}`
         pokemonH.classList.add ('pokeName')
         pokeDiv.appendChild(pokemonH)
 
-        let pokemonType = document.createElement('h4')
-        pokemonType.innerHTML = `${poke.types[0].type.name} ${poke.types[1].type.name}`
-        pokeDiv.appendChild(pokemonType)
+        poke.types.forEach(type => {
+            let pokemonType = document.createElement('h4')
+            pokemonType.innerHTML = `${type.type.name}`
+            pokeDiv.appendChild(pokemonType)
+        });
 
 
         let pokeImg = document.createElement('img')
@@ -29,35 +32,21 @@ const renderPokemon = poke =>{
         let statsList = document.createElement('ul')
         pokeDiv.append(statsList)
 
-        let hpstat = document.createElement('li')
-        hpstat.innerHTML = `${poke.stats[0].stat.name}:${poke.stats[0].base_stat}`
-        statsList.appendChild(hpstat)
+        poke.stats.forEach(stat =>{
+            console.log(stat)
+            let bstat = document.createElement('li')
+            bstat.innerHTML = `${stat.stat.name}:${stat.base_stat}`
+            statsList.appendChild(bstat)
+        })
 
-        let attstat = document.createElement('li')
-        attstat.innerHTML = `${poke.stats[1].stat.name}:${poke.stats[1].base_stat}`
-        statsList.appendChild(attstat)
+}
+const renderCharacteristics = data => {
+        let pokeDiv = document.createElement('div')
+        pokemonPlace.appendChild(pokeDiv)
 
-        let defstat = document.createElement('li')
-        defstat.innerHTML = `${poke.stats[2].stat.name}:${poke.stats[2].base_stat}`
-        statsList.appendChild(defstat)
-
-        let spastat = document.createElement('li')
-        spastat.innerHTML = `${poke.stats[3].stat.name}:${poke.stats[3].base_stat}`
-        statsList.appendChild(spastat)
-
-        let spdstat = document.createElement('li')
-        spdstat.innerHTML = `${poke.stats[4].stat.name}:${poke.stats[4].base_stat}`
-        statsList.appendChild(spdstat)
-
-        let spestat = document.createElement('li')
-        spestat.innerHTML = `${poke.stats[5].stat.name}:${poke.stats[5].base_stat}`
-        statsList.appendChild(spestat)
-
-        // poke.stats.forEach(() =>{
-        //     let bstat = document.createElement('li')
-        //     bstat.innerHTML = `${poke.stats.stat.name}:${base_stat}`
-        //     statsList.appendChild(bstat)
-        // })
+        let pokeC = document.createElement('p')
+        pokeC.innerHTML = data.descriptions[2].description
+        pokeDiv.appendChild(pokeC)
 }
 
 
@@ -73,8 +62,19 @@ const getPokemon = async () => {
     }
 }
 
-const rmPoke = () => {
+// const getCharacteristics = async () =>{
+//     try{
+//         const searchC = `${characteristics}${input.value}/`
+//         const response = await axios.get(searchC)
+//         console.log(response)
+//         renderCharacteristics(response.data)
+//     }catch(error){
+//         console.log(error)
+//     }
+// }
 
+const rmPoke = () => {
+//  pokemonPlace.removeChild(pokemonPlace.firstChild)
  pokemonPlace.removeChild(pokemonPlace.lastChild)
 //  pokemonPlace.removeChild(pokemonPlace.lastChild)
 
@@ -87,4 +87,5 @@ button.addEventListener('click', () =>{
     }
     rmPoke()
     getPokemon()
+    // getCharacteristics()
 })
