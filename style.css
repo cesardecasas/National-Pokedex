@@ -6,3 +6,8 @@ body {
 .pokemon{
     display: inline;
 }
+
+.pokelist:hover{
+    cursor: pointer;
+    background: white;
+}
