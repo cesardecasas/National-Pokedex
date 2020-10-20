@@ -8,6 +8,7 @@ const pokemonPlace2 = document.querySelector('.pokemon2')
 const pokemonPlace3 = document.querySelector('.pokemon3')
 const characteristics = 'https://pokeapi.co/api/v2/pokemon-species/'
 const types = 'https://pokeapi.co/api/v2/type/'
+const dropdown = document.querySelector('#searchBy')
 
 
 const renderPokemon = poke =>{
@@ -112,8 +113,12 @@ button.addEventListener('click', () =>{
     if(input.value === ''){
         alert('no pokemon name is entered')
     }
-    rmPoke()
-    getPokemon()
-    getCharacteristics()
-    getTypeList()
+    if(dropdown.value === 'Name or Id'){
+        rmPoke()
+        getPokemon()
+        getCharacteristics()
+    }else if(dropdown.value === 'Type'){
+        rmPoke()
+        getTypeList()
+    }
 })
