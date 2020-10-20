@@ -48,9 +48,16 @@ const renderCharacteristics = data => {
         let pokeDiv = document.createElement('div')
         pokemonPlace2.appendChild(pokeDiv)
 
-        let pokeC = document.createElement('p')
-        pokeC.innerHTML = data.flavor_text_entries[0].flavor_text
-        pokeDiv.appendChild(pokeC)
+            data.flavor_text_entries.forEach(text =>{
+                if(!pokeDiv.firstChild){
+                if(text.language.name === 'en'){
+                    let pokeC = document.createElement('p')
+                    pokeC.innerHTML = text.flavor_text
+                    pokeDiv.appendChild(pokeC)
+                
+                }
+            }
+        })
 }
 
 const renderTypeList = data => {
