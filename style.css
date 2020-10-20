@@ -7,7 +7,7 @@ body {
     display: inline;
 }
 
-.pokelist:hover{
+.pokeList:hover{
     cursor: pointer;
     background: white;
 }
