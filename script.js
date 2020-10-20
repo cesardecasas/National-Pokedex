@@ -9,6 +9,7 @@ const pokemonPlace3 = document.querySelector('.pokemon3')
 const characteristics = 'https://pokeapi.co/api/v2/pokemon-species/'
 const types = 'https://pokeapi.co/api/v2/type/'
 const dropdown = document.querySelector('#searchBy')
+const pokeList = document.querySelector('.pokeList')
 
 
 const renderPokemon = poke =>{
@@ -57,10 +58,15 @@ const renderTypeList = data => {
 
     data.pokemon.forEach(poke =>{
         let name = document.createElement('h3')
-        name.classList.add('pokelist')
+        name.classList.add('pokeList')
         name.innerHTML = `${poke.pokemon.name}`
+        name.addEventListener('click', () =>{
+            rmPoke()
+            getPokemonL()
+            getCharacteristicsL()
+        })
         pokeDiv.appendChild(name)
-
+        
     })
 }
 
@@ -79,6 +85,30 @@ const getPokemon = async () => {
 const getCharacteristics = async () =>{
     try{
         const searchC = `${characteristics}${input.value}/`
+        const response = await axios.get(searchC)
+        console.log(response.data)
+        renderCharacteristics(response.data)
+    }catch(error){
+        console.log(error)
+    }
+}
+
+const getPokemonL = async () => {
+    try{
+    const search = `${domain}/${pokeList}/`
+    const response = await axios.get(search)
+    
+        console.log(response.data)
+        renderPokemon(response.data)
+    }catch(error){
+        console.log(error)
+    }
+}
+
+const getCharacteristicsL = async () =>{
+    try{
+        console.log(pokeList)
+        const searchC = `${characteristics}${pokeList}/`
         const response = await axios.get(searchC)
         console.log(response.data)
         renderCharacteristics(response.data)
@@ -122,3 +152,4 @@ button.addEventListener('click', () =>{
         getTypeList()
     }
 })
+
