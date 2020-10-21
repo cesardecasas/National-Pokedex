@@ -52,6 +52,7 @@ const renderCharacteristics = data => {
                 if(!pokeDiv.firstChild){
                 if(text.language.name === 'en'){
                     let pokeC = document.createElement('p')
+                    pokeC.classList.add ('description')
                     pokeC.innerHTML = text.flavor_text
                     pokeDiv.appendChild(pokeC)
                 }
@@ -66,8 +67,8 @@ const renderTypeList = data => {
 
     data.pokemon.forEach(poke =>{
         let name = document.createElement('h3')
-        // name.classList.add('pokeList')
-        name.innerHTML = ` ${poke.pokemon.name} `
+        name.classList.add('pokeListI')
+        name.innerHTML = `${poke.pokemon.name}`
         name.addEventListener('click', () =>{
             getPokemonL(name.innerHTML)
             getCharacteristicsL(name.innerHTML)

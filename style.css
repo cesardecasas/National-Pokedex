@@ -23,6 +23,30 @@ header{
     justify-self: center;
 }
 
+#searchBy{
+    font-size: 16px;
+}
+
+#searchBy:hover{
+    cursor: pointer;
+}
+
+#input{
+    font-size: 15.5px;
+}
+
+#button{
+    background-color: rgb(78, 208, 248);
+    font-size: 16px;
+    font-weight: bold;
+    border: 1px solid black;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+#button:hover{
+    cursor: pointer;
+}
+
 .pokemons{
     display: block;
 }
@@ -35,9 +59,16 @@ header{
     display: block;
     
 }
+
+.pokeName{
+    font-size: 27px;
+    font-weight: bold;
+}
+
 .type{
     display: inline;
     justify-self: center;
+    font-size: 20px;
 }
 
 img{
@@ -49,6 +80,8 @@ ul{
     list-style-type: none;
     text-align: left;
     justify-self: start;
+    font-size: 18px;
+    font-weight: 300;
 }
 
 .pokemon2{
@@ -59,14 +92,20 @@ ul{
     text-align: center;
 }
 
+.description{
+    font-size: 18px;
+    font-weight: 300;
+}
+
 .pokeList{
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
     grid-column-start: 1;
     grid-column-end: 3;
     grid-row-start: 2;
     grid-row-end: 3;
-    /* margin: 2px; */
+    grid-gap: 12px;
+    padding: 2px;
 }
 
 footer{
@@ -75,7 +114,7 @@ footer{
     align-self: end;
 }
 
-.pokeList:hover{
+.pokeListI:hover{
     cursor: pointer;
-    /* background: white; */
+    background: white;
 }
