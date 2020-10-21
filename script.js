@@ -25,7 +25,8 @@ const renderPokemon = poke =>{
 
         poke.types.forEach(type => {
             let pokemonType = document.createElement('h4')
-            pokemonType.innerHTML = `${type.type.name}`
+            pokemonType.classList.add ('type')
+            pokemonType.innerHTML = `${type.type.name} `
             pokeDiv.appendChild(pokemonType)
         });
 
@@ -42,19 +43,17 @@ const renderPokemon = poke =>{
             bstat.innerHTML = `${stat.stat.name}:${stat.base_stat}`
             statsList.appendChild(bstat)
         })
-
 }
+
 const renderCharacteristics = data => {
         let pokeDiv = document.createElement('div')
         pokemonPlace2.appendChild(pokeDiv)
-
             data.flavor_text_entries.forEach(text =>{
                 if(!pokeDiv.firstChild){
                 if(text.language.name === 'en'){
                     let pokeC = document.createElement('p')
                     pokeC.innerHTML = text.flavor_text
                     pokeDiv.appendChild(pokeC)
-                
                 }
             }
         })
@@ -62,12 +61,13 @@ const renderCharacteristics = data => {
 
 const renderTypeList = data => {
     let pokeDiv = document.createElement('div')
+    pokeDiv.classList.add('pokeList')
     pokemonPlace.appendChild(pokeDiv)
 
     data.pokemon.forEach(poke =>{
         let name = document.createElement('h3')
-        name.classList.add('pokeList')
-        name.innerHTML = `${poke.pokemon.name}`
+        // name.classList.add('pokeList')
+        name.innerHTML = ` ${poke.pokemon.name} `
         name.addEventListener('click', () =>{
             getPokemonL(name.innerHTML)
             getCharacteristicsL(name.innerHTML)
