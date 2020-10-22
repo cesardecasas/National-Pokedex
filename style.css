@@ -4,7 +4,7 @@ body {
     
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 150px 1fr 100px auto;
+    grid-template-rows: 150px 1fr auto auto;
     border: red;
 }
 
@@ -110,14 +110,14 @@ ul{
     text-align: center;
 }
 
-.description{
-    font-size: 18px;
-    font-weight: 300;
-}
-
 .gen{
     background-color: rgba(255, 255, 255, 0.781);
     border: 2px double black;
+}
+
+.description{
+    font-size: 18px;
+    font-weight: 300;
 }
 
 .generation{
@@ -127,12 +127,12 @@ ul{
 }
 
 .pokeList{
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
     grid-column-start: 1;
     grid-column-end: 3;
     grid-row-start: 2;
     grid-row-end: 3;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
     grid-gap: 12px;
     padding: 2px;
     background-color: rgba(255, 255, 255, 0.746);

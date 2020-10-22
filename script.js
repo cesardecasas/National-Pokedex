@@ -5,7 +5,6 @@ const button = document.querySelector('#button')
 const domain = 'https://pokeapi.co/api/v2/pokemon'
 const pokemonPlace = document.querySelector('.pokemon') 
 const pokemonPlace2 = document.querySelector('.pokemon2')
-const pokemonPlace3 = document.querySelector('.pokemon3')
 const characteristics = 'https://pokeapi.co/api/v2/pokemon-species/'
 const types = 'https://pokeapi.co/api/v2/type/'
 const dropdown = document.querySelector('#searchBy')
@@ -89,6 +88,10 @@ const renderTypeList = data => {
     })
 }
 
+const clearF = () => {
+    input.value = ''
+}
+
 const getPokemon = async () => {
     try{
     const search = `${domain}/${input.value}/`
@@ -166,9 +169,11 @@ button.addEventListener('click', () =>{
         rmPoke()
         getPokemon()
         getCharacteristics()
+        clearF()
     }else if(dropdown.value === 'Type'){
         rmPoke()
         getTypeList()
+        clearF()
     }
 })
 
