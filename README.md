@@ -34,7 +34,7 @@ As a user... I should be able to find any pokemon's information by simply typing
 
 As a user... I should be able to search for a pokemon by using its type.
 
-As a user... I should be able to see the pokemon's sprite and its variations if it has.
+As a user... I should be able to see the pokemon's  base sprite.
 
 As a user... I should be able to see the pokemon's base stats.
 
