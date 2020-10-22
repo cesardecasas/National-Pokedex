@@ -5,15 +5,14 @@ const myTeam = JSON.parse(localStorage.getItem('myTeam'))
 console.log(myTeam)
 
 const removePoke = (poke) => {
-    myTeam.forEach( dPoke => {
-        if(poke === dPoke){
-            localStorage.removeItem(dPoke)
-        }
-        
-    });
+    teamDiv.innerHTML=''
+    myTeam.splice(poke,1)
+    localStorage.setItem('myTeam',JSON.stringify(myTeam))
+    displayTeam()
 }
 
-myTeam.forEach( (team) => {
+const displayTeam = () =>{
+    myTeam.forEach( (team,index) => {
     const pokeDiv = document.createElement('div')
     teamDiv.appendChild(pokeDiv)
 
@@ -27,8 +26,12 @@ myTeam.forEach( (team) => {
 
     const remove = document.createElement('button')
     remove.innerHTML = 'Remove'
+    remove.classList.add ('removeB')
     remove.addEventListener('click', () =>{
-        removePoke(team.name)
+        removePoke(index)
     })
     pokeDiv.appendChild(remove)
 });
+}
+
+displayTeam()
