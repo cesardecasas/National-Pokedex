@@ -51,6 +51,13 @@ header{
     display: block;
 }
 
+.myTeam{
+    grid-column: 3;
+    grid-row: 1;
+    align-self: center;
+    justify-self: center;
+}
+
 .pokemon{
     grid-row-start: 2;
     grid-column: 2;
@@ -63,17 +70,25 @@ header{
 .pokeName{
     font-size: 27px;
     font-weight: bold;
+    background-color: rgba(255, 255, 255, 0.781);
+    border: 2px double black;
+    padding: 2px;
 }
 
 .type{
     display: inline;
     justify-self: center;
     font-size: 20px;
+    background-color: rgba(255, 255, 255, 0.781);
+    border: 2px double black;
+    padding: 2px;
 }
 
 img{
     display: block;
     padding: 5px;
+    
+    
 }
 
 ul{
@@ -82,6 +97,9 @@ ul{
     justify-self: start;
     font-size: 18px;
     font-weight: 300;
+    background-color: rgba(255, 255, 255, 0.781);
+    border: 2px double black;
+    padding: 10px;
 }
 
 .pokemon2{
@@ -97,6 +115,17 @@ ul{
     font-weight: 300;
 }
 
+.gen{
+    background-color: rgba(255, 255, 255, 0.781);
+    border: 2px double black;
+}
+
+.generation{
+    font-size: 18px;
+    font-weight: bold;
+    font-style: italic;
+}
+
 .pokeList{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
@@ -106,15 +135,25 @@ ul{
     grid-row-end: 3;
     grid-gap: 12px;
     padding: 2px;
+    background-color: rgba(255, 255, 255, 0.746);
+    border: 2px double black;
+}
+
+.pokeListI{
+    padding: 2px;
+}
+.instruction{
+    justify-self: center;
+}
+
+.pokeListI:hover{
+    cursor: pointer;
+    background: lightblue;
+    padding: 5px;
 }
 
 footer{
     grid-column: 1;
     grid-row: 4;
     align-self: end;
-}
-
-.pokeListI:hover{
-    cursor: pointer;
-    background: white;
 }

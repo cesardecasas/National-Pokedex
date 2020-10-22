@@ -47,6 +47,7 @@ const renderPokemon = poke =>{
 
 const renderCharacteristics = data => {
         let pokeDiv = document.createElement('div')
+        pokeDiv.classList.add('gen')
         pokemonPlace2.appendChild(pokeDiv)
             data.flavor_text_entries.forEach(text =>{
                 if(!pokeDiv.firstChild){
@@ -58,12 +59,21 @@ const renderCharacteristics = data => {
                 }
             }
         })
+        let generation = document.createElement('p')
+        generation.innerHTML = `${data.generation.name}`
+        generation.classList.add('generation')
+        pokeDiv.appendChild(generation)
 }
 
 const renderTypeList = data => {
     let pokeDiv = document.createElement('div')
     pokeDiv.classList.add('pokeList')
     pokemonPlace.appendChild(pokeDiv)
+
+    let instruction = document.createElement('h2')
+    instruction.innerHTML = 'Select Pokemon'
+    instruction.classList.add('instruction')
+    pokeDiv.appendChild(instruction)
 
     data.pokemon.forEach(poke =>{
         let name = document.createElement('h3')
