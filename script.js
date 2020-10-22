@@ -34,6 +34,14 @@ const renderPokemon = poke =>{
         pokeImg.classList.add ('pImg')
         pokeDiv.append(pokeImg)
 
+        let myTeam =  document.createElement('button')
+        myTeam.classList.add ('myTeamB')
+        myTeam.innerHTML = 'Add to Team'
+        myTeam.addEventListener('click', () =>{
+            transferData(poke)
+        })
+        pokeDiv.appendChild(myTeam) 
+
         let statsList = document.createElement('ul')
         pokeDiv.append(statsList)
 
@@ -90,6 +98,16 @@ const renderTypeList = data => {
 
 const clearF = () => {
     input.value = ''
+}
+
+const transferData = (pokemon) =>{
+    const myTeam = JSON.parse(localStorage.getItem('myTeam')) || [] 
+    const mypokemon = {
+        name: pokemon.name,
+        img: pokemon.sprites.front_default
+    }
+    myTeam.push(mypokemon)
+    localStorage.setItem('myTeam',JSON.stringify(myTeam))
 }
 
 const getPokemon = async () => {

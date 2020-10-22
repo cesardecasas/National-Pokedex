@@ -1,11 +1,9 @@
 body {
     background-image: url(https://www.desktophut.ru/wp-content/uploads/2018/06/pokemon-dex-4k.jpg);
     background-size: auto;
-    
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: 150px 1fr auto auto;
-    border: red;
 }
 
 header{
@@ -58,6 +56,7 @@ header{
     justify-self: center;
 }
 
+
 .pokemon{
     grid-row-start: 2;
     grid-column: 2;
@@ -65,6 +64,17 @@ header{
     align-self: start;
     display: block;
     
+}
+
+.myTeamB{
+grid-row: 2;
+grid-column: 3;
+background-color: rgb(78, 208, 248);
+font-size: 16px;
+font-weight: bold;
+border: 1px solid black;
+font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+
 }
 
 .pokeName{
