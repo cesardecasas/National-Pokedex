@@ -1,5 +1,3 @@
-// console.log('hello') trying out if was linked correctly
-//ask for help regarding displaying more tha 1 type and removew the last pokemon searched
 const input = document.querySelector('#input')
 const button = document.querySelector('#button')
 const domain = 'https://pokeapi.co/api/v2/pokemon'
