@@ -54,6 +54,14 @@ header{
     grid-row: 1;
     align-self: center;
     justify-self: center;
+    background-color: rgb(78, 208, 248);
+    font-size: 25px;
+    font-weight: bold;
+    border: 1px solid black;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    color: black;
+    text-decoration: none ;
+
 }
 
 
