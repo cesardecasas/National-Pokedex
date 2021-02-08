@@ -1,5 +1,5 @@
 body {
-    background-image: url(https://www.desktophut.ru/wp-content/uploads/2018/06/pokemon-dex-4k.jpg);
+    background-color: rgb(100, 207, 127);
     background-size: auto;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;

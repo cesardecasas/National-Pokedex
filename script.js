@@ -8,6 +8,7 @@ const types = 'https://pokeapi.co/api/v2/type/'
 const dropdown = document.querySelector('#searchBy')
 const pokeList = document.querySelector('.pokeList')
 const pokeH3 = document.querySelector('h3')
+const team = document.querySelector('.myTeam')
 
 
 const renderPokemon = poke =>{
@@ -193,3 +194,7 @@ button.addEventListener('click', () =>{
     }
 })
  
+team.addEventListener('click',()=>{
+    console.log('hello')
+    href='./myteam.html'
+})

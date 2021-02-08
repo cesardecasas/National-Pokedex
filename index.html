@@ -6,9 +6,10 @@
     <title>Pokedex</title>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
 </head>
-<body>
-    <h2 class="myTeam"> <a href="./myteam.html">My Team</a></h2>
+<body class="main">
+    <button class="myTeam" > <a href="./myteam.html">My Team</a></button>
     <header>Pokedex</header>
     <div class="search">
     <select name="searchBy" id="searchBy">
@@ -16,7 +17,7 @@
         <option value="Type">Type</option>
     </select>
     <input type="text" id="input" placeholder="Enter pokemon">
-    <button id="button">Submit</button>
+    <button id="button" class="btn btn-primary">Submit</button>
 </div class="pokemons">
 <div class="pokemon">
     
